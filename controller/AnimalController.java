@@ -8,11 +8,8 @@ import services.AnimalList;
 import utils.UI;
 
 public class AnimalController {
-    @SuppressWarnings("unused")
     private static final String Hamster = null;
-    @SuppressWarnings("unused")
     private static final String Dog = null;
-    @SuppressWarnings("unused")
     private static final String Cat = null;
     private final AnimalList<Object> animalList = new AnimalList<>();
     private final UI ui = new UI();
