@@ -9,57 +9,29 @@ import data.Dog;
 import data.Hamster;
 
 
-/**
- * список животных
- */
 public class AnimalList <Animal> {
     private List<Animal> animals = new ArrayList<>();
 
-    /**
-     * добавить животное в список
-     * @param animal
-     */
     public void addAnimal(Animal animal) {
         animals.add(animal);
     }
 
-    /**
-     * удалить животное из списка
-     * @param animal
-     * @return
-     */
     public boolean removeAnimal(Animal animal){
         return animals.remove(animal);
     }
 
-    /**
-     * Получить список животных
-     * @return
-     */
     public List<Animal> getAnimals(){
         return animals;
     }
 
-    /**
-     * Получить только кошек
-     * @return
-     */
     public List<Animal> getCats(){
         return animals.stream().filter(x -> x instanceof Cat).toList();
     }
 
-    /**
-     * Получить только собак
-     * @return
-     */
     public List<Animal> getDogs(){
         return animals.stream().filter(x -> x instanceof Dog).toList();
     }
 
-    /**
-     * Получить только хомяков
-     * @return
-     */
     public List<Animal> getHamsters(){
         return animals.stream().filter(x -> x instanceof Hamster).toList();
     }
