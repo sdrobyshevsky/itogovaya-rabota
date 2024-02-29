@@ -14,7 +14,7 @@ public class AnimalController {
     private final AnimalList<Object> animalList = new AnimalList<>();
     private final UI ui = new UI();
 
-    // главное меню
+   
     private final Map<String, String> menuMain = new HashMap<String, String>() {{
         put("1", "Добавить животное");
         put("2", "Добавить команду");
@@ -23,7 +23,7 @@ public class AnimalController {
         put("5", "Показать кол-во животных");
         put("0", "Выход");
     }};
-    // меню второго уровня
+
     private final Map<String, String> menuAnimal = new HashMap<>() {{
         put("1", "Кот");
         put("2", "Собака");
@@ -67,10 +67,6 @@ public class AnimalController {
         }
     }
 
-    /**
-     * Отобразить список команд животного
-     * @param animal
-     */
     private void showCommands(ANIMALS animal){
         String name = ui.getString("Имя животного: ");
 
@@ -103,10 +99,6 @@ public class AnimalController {
         Logger.getAnonymousLogger().info(strCommands.toString());
     }
 
-    /**
-     * Отображение списка животных
-     * @param animal
-     */
     private void showAnimals(ANIMALS animal){
         List<Object> animals = null;
 
@@ -122,10 +114,6 @@ public class AnimalController {
         }
     }
 
-    /**
-     * Добавление команды
-     * @param animal
-     */
     private void addCommand(ANIMALS animal){
         String name = ui.getString("Имя животного: ");
         Object objAnimal = null;
@@ -150,12 +138,8 @@ public class AnimalController {
 
     }
 
-    /**
-     * Добавленеи нового животного
-     * @param animal - вид добавляемого животного
-     */
     private void addAnimal(ANIMALS animal) throws Exception {
-        // Счетчик
+        
         try(AnimalCounter counter = new AnimalCounter()){
             counter.add();
         }
@@ -182,11 +166,6 @@ public class AnimalController {
         }
     }
 
-    /**
-     * Выбор операции в меню программы
-     *
-     * @return
-     */
     private String getOperation() {
         String menu = ui.menuShow(menuMain);
         if (!menu.isEmpty() && !menu.equals("0") && !menu.equals("5")) {
