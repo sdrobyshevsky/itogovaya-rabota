@@ -87,9 +87,41 @@ Linux
 Задание 8
 Создать таблицы с иерархией из диаграммы в БД
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(100).png)
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(101).png)
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(102).png)
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(103).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(104).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(105).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(106).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(109).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(110).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(112).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(113).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(114).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(117).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(118).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(119).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(120).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(121).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(123).png)
 
 Задание 9
 Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
