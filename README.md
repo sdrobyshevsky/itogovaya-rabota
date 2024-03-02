@@ -32,11 +32,6 @@ Linux
 Задание 3
 Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория. 
 
-Сначала не удалось запустить сервер MySQL. Поэтому установил и запустил БД MariaDB. Работал с данной базой данных.
-
-Впоследствии решил проблемы с установкой и запуском MySQL сервера. Решение проблемы находится в отдельном файле.
-
-
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(156).png)
 
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(157).png)
@@ -71,9 +66,10 @@ Linux
 Задание 7
 В подключенном MySQL репозитории создать базу данных “Друзья человека”
 
-Примечание: не смог запустить сервер MYSQL (ошибка: failed to restart mysql.service: unit mysql.service is masked). 
+В процессе работы не удалось запустить сервер MySQL. Поэтому установил и запустил БД MariaDB. Работал с данной базой данных.
 
-Поэтому установил и работал в базе данных MariaDB.
+Впоследствии решил проблемы с установкой и запуском MySQL сервера. Решение проблемы находится в отдельном файле.
+
 
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(92).png)
 
