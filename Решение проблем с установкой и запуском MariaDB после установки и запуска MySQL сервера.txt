@@ -1,0 +1,3429 @@
+Решение проблем с установкой и запуском MariaDB после установки и запуска MySQL сервера.
+Решение проблемы зависимостей двух Баз Данных.
+ 
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+● mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Sat 2024-03-02 18:07:57 +03; 2min 47s ago
+
+    Process: 99735 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+
+   Main PID: 99743 (mysqld)
+
+     Status: "Server is operational"
+
+      Tasks: 38 (limit: 4599)
+
+     Memory: 363.9M
+
+        CPU: 2.197s
+
+     CGroup: /system.slice/mysql.service
+
+             └─99743 /usr/sbin/mysqld
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server maria-client 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет maria-client
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  libdbd-mysql-perl libmysqlclient21 libterm-readkey-perl mariadb-client-10.6 mariadb-client-core-10.6 mariadb-server-10.6 mariadb-server-core-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mysql-client-8.0 mysql-client-core-8.0 mysql-server mysql-server-8.0 mysql-server-core-8.0
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  libdbd-mysql-perl libmysqlclient21 libterm-readkey-perl mariadb-client mariadb-client-10.6 mariadb-client-core-10.6 mariadb-server mariadb-server-10.6
+
+  mariadb-server-core-10.6
+
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 5 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 2 пакетов.
+
+Необходимо скачать 11,6 kB/15,8 MB архивов.
+
+После данной операции объём занятого дискового пространства уменьшится на 28,7 MB.
+
+Хотите продолжить? [Д/н] y
+
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-client all 1:10.6.16-0ubuntu0.22.04.1 [11,6 kB]
+
+Получено 11,6 kB за 0с (155 kB/s)    
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211043 файла и каталога.)
+
+Удаляется mysql-server (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Удаляется mysql-client-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется mysql-client-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется mysql-server-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-client-core-10.6.
+
+(Чтение базы данных … на данный момент установлено 210838 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-client-core-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-client-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-client-10.6.
+
+Подготовка к распаковке …/mariadb-client-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-client-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-server-core-10.6.
+
+Подготовка к распаковке …/mariadb-server-core-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-server-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ apt-get uninstall
+
+E: Неверная операция uninstall
+
+sergey@sergey-VirtualBox:~$ sudo apt-get uninstall
+
+E: Неверная операция uninstall
+
+sergey@sergey-VirtualBox:~$ apt-get purge
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt-get purge
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmariadb3 libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mariadb-client-10.6 mariadb-client-core-10.6
+
+  mariadb-common mariadb-server-core-10.6 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+После данной операции объём занятого дискового пространства возрастёт на 0 B.
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-core-10.6:
+
+ mariadb-client-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет libmariadb3:amd64:
+
+ libmariadb3:amd64 зависит от mariadb-common, однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета libmariadb3:amd64 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-10.6:
+
+ mariadb-client-10.6 зависит от mariadb-client-core-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1),Отчёт apport не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                   Отчёт apport не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                                                                                                                            Отчёт apport не записан, так как достигнуто значение MaxReports
+
+            Отчёт apport не записан, так как достигнуто значение MaxReports
+
+                                                                            однако:
+
+  Пакет mariadb-client-core-10.6 пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server-core-10.6:
+
+ mariadb-server-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+ mariadb-client-core-10.6
+
+ libmariadb3:amd64
+
+ mariadb-client-10.6
+
+ mariadb-server-core-10.6
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt-get uninstall
+
+E: Неверная операция uninstall
+
+sergey@sergey-VirtualBox:~$ cd /var/lib/dpkg/info
+
+sergey@sergey-VirtualBox:/var/lib/dpkg/info$ sudo rm ng*.*
+
+rm: невозможно удалить 'ng*.*': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/var/lib/dpkg/info$ cd
+
+sergey@sergey-VirtualBox:~$ sudo apt-get install -f
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmariadb3 libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mariadb-client-10.6 mariadb-client-core-10.6
+
+  mariadb-common mariadb-server-core-10.6 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+После данной операции объём занятого дискового пространства возрастёт на 0 B.
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-core-10.6:
+
+ mariadb-client-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет libmariadb3:amd64:
+
+ libmariadb3:amd64 зависит от mariadb-common, однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета libmariadb3:amd64 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-10.6:
+
+ mariadb-client-10.6 зависит от mariadb-client-core-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1),Отчёт apport не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                   Отчёт apport не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                                                                                                                            Отчёт apport не записан, так как достигнуто значение MaxReports
+
+            Отчёт apport не записан, так как достигнуто значение MaxReports
+
+                                                                            однако:
+
+  Пакет mariadb-client-core-10.6 пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server-core-10.6:
+
+ mariadb-server-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+ mariadb-client-core-10.6
+
+ libmariadb3:amd64
+
+ mariadb-client-10.6
+
+ mariadb-server-core-10.6
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-client mariadb-server mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 3 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+Необходимо скачать 0 B/4.165 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,6 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 4min 7s ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ mysql -u root  
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 4min 35s ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql stop
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 5min ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo mysql
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt update && sudo apt install mysql-server
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                      
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                    
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                      
+
+Пол:5 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]   
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo mysql
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 6min ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql stop
+
+^[[A^[[Asergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 7min ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo mysql -u root  
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 7min ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+○ mysql.service
+
+     Loaded: masked (Reason: Unit mysql.service is masked.)
+
+     Active: inactive (dead) since Sat 2024-03-02 18:11:55 +03; 7min ago
+
+   Main PID: 99743 (code=exited, status=0/SUCCESS)
+
+     Status: "Server shutdown complete"
+
+        CPU: 2.677s
+
+
+
+сак 02 18:07:56 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 18:07:57 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сак 02 18:11:53 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 18:11:55 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2.677s CPU time.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql*
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb.1
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.28-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.28-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.28-1_all.deb~»
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo dpkg -r mysql-server-8.0
+
+dpkg: предупреждение: игнорируется запрос на удаление пакета mysql-server-8.0, от которого
+
+ сохранились только файлы настройки; чтобы удалить и файлы
+
+ настройки, используйте --purge
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-client mariadb-server mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 3 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+Необходимо скачать 0 B/4.165 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,6 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo dpkg -r mysql-server-8.0
+
+dpkg: предупреждение: игнорируется запрос на удаление пакета mysql-server-8.0, от которого
+
+ сохранились только файлы настройки; чтобы удалить и файлы
+
+ настройки, используйте --purge
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Failed to start mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+Необходимо скачать 0 B/4.153 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,6 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Failed to restart mysql.service: Unit mysql.service is masked.
+
+sergey@sergey-VirtualBox:~$ sudo dpkg --configure -a
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-core-10.6:
+
+ mariadb-client-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет libmariadb3:amd64:
+
+ libmariadb3:amd64 зависит от mariadb-common, однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета libmariadb3:amd64 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-10.6:
+
+ mariadb-client-10.6 зависит от mariadb-client-core-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-client-core-10.6 пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server-core-10.6:
+
+ mariadb-server-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+ mariadb-client-core-10.6
+
+ libmariadb3:amd64
+
+ mariadb-client-10.6
+
+ mariadb-server-core-10.6
+
+sergey@sergey-VirtualBox:~$ sudo apt install --fix-broken
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmariadb3 libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mariadb-client-10.6 mariadb-client-core-10.6
+
+  mariadb-common mariadb-server-core-10.6 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+После данной операции объём занятого дискового пространства возрастёт на 0 B.
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: ошибка: альтернативный путь /etc/mysql/mariadb.cnf не существует
+
+dpkg: ошибка при обработке пакета mariadb-common (--configure):
+
+ подпроцесс из пакета mariadb-common установлен сценарий post-installation возвратил код ошибки 2
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-core-10.6:
+
+ mariadb-client-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет libmariadb3:amd64:
+
+ libmariadb3:amd64 зависит от mariadb-common, однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета libmariadb3:amd64 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-client-10.6:
+
+ mariadb-client-10.6 зависит от mariadb-client-core-10.6 Отчёт apport не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                                                                                                                                                                  Отчёт apport 
+
+не записан, так как сообщение об ошибке указывает на повторную ошибку от предыдущего отказа.
+
+                                                                                            Отчёт apport не записан, так как достигнуто значение MaxReports
+
+                                                                                                                                                           Отчёт apport не запи
+
+сан, так как достигнуто значение MaxReports
+
+                                           (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-client-core-10.6 пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-client-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server-core-10.6:
+
+ mariadb-server-core-10.6 зависит от mariadb-common (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-common пока не настроен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server-core-10.6 (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-common
+
+ mariadb-client-core-10.6
+
+ libmariadb3:amd64
+
+ mariadb-client-10.6
+
+ mariadb-server-core-10.6
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt remove --purge mariadb-common mariadb-client-core-10.6 libmariadb3:amd64 mariadb-client-10.6 mariadb-server-core-10.6
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  libmariadb3* mariadb-client-10.6* mariadb-client-core-10.6* mariadb-common* mariadb-server-core-10.6*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 5 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 5 пакетов.
+
+После данной операции объём занятого дискового пространства уменьшится на 81,9 MB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлено 211030 файлов и каталогов.)
+
+Удаляется mariadb-client-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Удаляется mariadb-client-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Удаляется libmariadb3:amd64 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Удаляется mariadb-server-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Удаляется mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.6) …
+
+(Чтение базы данных … на данный момент установлено 210824 файла и каталога.)
+
+Вычищаются файлы настройки пакета mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+Вычищаются файлы настройки пакета mariadb-client-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+sergey@sergey-VirtualBox:~$ sudo apt remove --purge mariadb-common mariadb-client-core-10.6 libmariadb3:amd64 mariadb-client-10.6 mariadb-server-core-10.6
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Пакет «libmariadb3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.6» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.6» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-common» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.6» не установлен, поэтому не может быть удалён
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Пол:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                                                                        
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                                               
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                                  
+
+Пол:5 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                 
+
+Пол:6 http://by.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1.421 kB]
+
+Пол:7 http://by.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [579 kB]
+
+Ошб:5 http://repo.mysql.com/apt/debian jessie InRelease          
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt remove --purge mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Пакет «mysql-server» не установлен, поэтому не может быть удалён
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo apt remove --purge mysql-server-8.0
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdaxctl1 libdbi-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl
+
+  libfcgi0ldbl libhtml-template-perl libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-common socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mysql-server-8.0*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 0 пакетов не обновлено.
+
+После данной операции объём занятого дискового пространства возрастёт на 0 B.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлено 210819 файлов и каталогов.)
+
+Вычищаются файлы настройки пакета mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Пол:1 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy InRelease                                                                                
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                         
+
+Сущ:4 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                                       
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                          
+
+Ошб:1 http://repo.mysql.com/apt/debian jessie InRelease        
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  libdbd-mysql-perl libmariadb3 libmysqlclient21 libterm-readkey-perl mariadb-client-10.6 mariadb-client-core-10.6 mariadb-common mariadb-server-10.6
+
+  mariadb-server-core-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  libdbd-mysql-perl libmariadb3 libmysqlclient21 libterm-readkey-perl mariadb-client mariadb-client-10.6 mariadb-client-core-10.6 mariadb-common mariadb-server
+
+  mariadb-server-10.6 mariadb-server-core-10.6
+
+Обновлено 0 пакетов, установлено 11 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Необходимо скачать 0 B/16,0 MB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 157 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+Выбор ранее не выбранного пакета mariadb-common.
+
+(Чтение базы данных … на данный момент установлено 210807 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-common_1%3a10.6.16-0ubuntu0.22.04.1_all.deb …
+
+Распаковывается mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета libmariadb3:amd64.
+
+Подготовка к распаковке …/libmariadb3_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается libmariadb3:amd64 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-client-core-10.6.
+
+Подготовка к распаковке …/mariadb-client-core-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-client-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-client-10.6.
+
+Подготовка к распаковке …/mariadb-client-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-client-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-server-core-10.6.
+
+Подготовка к распаковке …/mariadb-server-core-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-server-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-common (1:10.6.16-0ubuntu0.22.04.1) …
+
+update-alternatives: используется /etc/mysql/mariadb.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Выбор ранее не выбранного пакета mariadb-server-10.6.
+
+(Чтение базы данных … на данный момент установлено 211018 файлов и каталогов.)
+
+Подготовка к распаковке …/0-mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /tmp/apt-dpkg-install-b8OgGK/0-mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+Выбор ранее не выбранного пакета libmysqlclient21:amd64.
+
+Подготовка к распаковке …/1-libmysqlclient21_8.0.36-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается libmysqlclient21:amd64 (8.0.36-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета libdbd-mysql-perl:amd64.
+
+Подготовка к распаковке …/2-libdbd-mysql-perl_4.050-5ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается libdbd-mysql-perl:amd64 (4.050-5ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета libterm-readkey-perl.
+
+Подготовка к распаковке …/3-libterm-readkey-perl_2.38-1build4_amd64.deb …
+
+Распаковывается libterm-readkey-perl (2.38-1build4) …
+
+Выбор ранее не выбранного пакета mariadb-client.
+
+Подготовка к распаковке …/4-mariadb-client_1%3a10.6.16-0ubuntu0.22.04.1_all.deb …
+
+Распаковывается mariadb-client (1:10.6.16-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mariadb-server.
+
+Подготовка к распаковке …/5-mariadb-server_1%3a10.6.16-0ubuntu0.22.04.1_all.deb …
+
+Распаковывается mariadb-server (1:10.6.16-0ubuntu0.22.04.1) …
+
+При обработке следующих пакетов произошли ошибки:
+
+ /tmp/apt-dpkg-install-b8OgGK/0-mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo ls -l /var/lib/dpkg/info | grep -i mariadb-server-10.6
+
+-rw-r--r-- 1 root root     535 сак  2 18:00 mariadb-server-10.6.list
+
+-rwxr-xr-x 1 root root    4818 сне  2 06:44 mariadb-server-10.6.postrm
+
+sergey@sergey-VirtualBox:~$ sudo mv /var/lib/dpkg/info/mariadb-server-10.6.* /tmp
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-client самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ apt --fix-broken install
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo \apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 9 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 9 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-client самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install mariadb-server-10.6
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 9 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt-get install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt remove --purge mysql-server mysql-client mysql-common
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Пакет «mysql-client» не установлен, поэтому не может быть удалён
+
+Пакет «mysql-server» не установлен, поэтому не может быть удалён
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ libmysqlclient21 : Зависит: mysql-common (>= 5.5) но он не будет установлен
+
+ mariadb-common : Зависит: mysql-common (>= 5.6.25) но он не будет установлен
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt autoremove
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb*
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb-server
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ apt-get remove --purge mysql
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mariadb
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mariadb
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mariadb*
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Заметьте, выбирается «mariadb-tokudb-engine-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-spider» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-s3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-galera-server-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-mroonga» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-connect-engine-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-connect-engine-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-oqgraph-engine-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-oqgraph-engine-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-gssapi-server-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-gssapi-server-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test-data-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-testsuite-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-testsuite-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-rocksdb-engine-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-rocksdb-engine-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-rocksdb» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-backup» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-connect» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-backup-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-backup-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-backup-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-5.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-5.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-5.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.4» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-core-10.6» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-cracklib-password-check» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-gssapi-client» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-galera-server» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.4» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-10.6» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-tokudb-engine-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-tokudb-engine-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-common» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-5.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-oqgraph» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-galera-server-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.4» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-server-10.6» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-gssapi-client-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-gssapi-client-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.0» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.1» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.2» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.3» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.4» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.5» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-client-core-10.6» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-test-data» для шаблона «mariadb*»
+
+Заметьте, выбирается «mariadb-plugin-gssapi-server» для шаблона «mariadb*»
+
+Пакет «mariadb-client-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-galera-server-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-galera-server-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-5.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-5.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-5.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-backup-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-backup-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-backup-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.4» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-10.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.4» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-10.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-client-core-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-connect-engine-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-connect-engine-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-gssapi-client-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-gssapi-client-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-gssapi-server-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-gssapi-server-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-oqgraph-engine-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-oqgraph-engine-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-rocksdb-engine-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-rocksdb-engine-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-tokudb-engine-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-tokudb-engine-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-tokudb-engine-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-galera-server» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.4» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-10.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.2» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.4» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-10.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-server-core-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test-5.5» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test-data-10.0» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-testsuite-10.1» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-testsuite-10.3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-backup» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-connect» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-cracklib-password-check» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-gssapi-client» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-gssapi-server» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-mroonga» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-oqgraph» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-rocksdb» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-s3» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-plugin-spider» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test» не установлен, поэтому не может быть удалён
+
+Пакет «mariadb-test-data» не установлен, поэтому не может быть удалён
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ libmariadb3 : Зависит: mariadb-common но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql*
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb.1
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.28-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.28-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.28-1_all.deb~»
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb-server
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt-get --purge remove mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libdaxctl1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl
+
+  libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mariadb-server-core-10.6 mecab-ipadic mecab-ipadic-utf8 mecab-utils socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mariadb-server*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 9 пакетов.
+
+После данной операции объём занятого дискового пространства уменьшится на 69,6 kB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Удаляется mariadb-server (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет libmysqlclient21:amd64 (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет libdbd-mysql-perl:amd64 (4.050-5ubuntu0.22.04.1) …
+
+Настраивается пакет libmariadb3:amd64 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет libterm-readkey-perl (2.38-1build4) …
+
+Настраивается пакет mariadb-server-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-client-core-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-client-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-client (1:10.6.16-0ubuntu0.22.04.1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.6) …
+
+sergey@sergey-VirtualBox:~$ sudo apt-get --purge remove mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Пакет «mariadb-server» не установлен, поэтому не может быть удалён
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  galera-4 libaio1 libcgi-fast-perl libcgi-pm-perl libdaxctl1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl
+
+  libmecab2 libndctl6 libpmem1 libprotobuf-lite23 libsnappy1v5 liburing2 mariadb-server-core-10.6 mecab-ipadic mecab-ipadic-utf8 mecab-utils socat
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql*
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.15-1_all.deb.1
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.15-1_all.deb.1»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.28-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.28-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.28-1_all.deb~»
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mariadb
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mariadb
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                       
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                     
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease                        
+
+Пол:5 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]
+
+Ошб:5 http://repo.mysql.com/apt/debian jessie InRelease     
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Необходимо скачать 0 B/4.153 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,6 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211036 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+Выбор ранее не выбранного пакета mariadb-server.
+
+Подготовка к распаковке …/mariadb-server_1%3a10.6.16-0ubuntu0.22.04.1_all.deb …
+
+Распаковывается mariadb-server (1:10.6.16-0ubuntu0.22.04.1) …
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --dpkg
+
+E: Параметр командной строки «--dpkg» непонятен в комбинации с другими параметрами
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove -dpkg
+
+E: Параметр командной строки «p» [из -dpkg] непонятен в комбинации с другими параметрами.
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove dpkg
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ dash : Зависит: dpkg (>= 1.19.1)
+
+ fonts-deva-extra : Предзависит: dpkg (>= 1.15.6~)
+
+ fonts-droid-fallback : Предзависит: dpkg (>= 1.15.7.2)
+
+ fonts-kacst : Предзависит: dpkg (>= 1.15.6~)
+
+ fonts-kacst-one : Предзависит: dpkg (>= 1.15.6~)
+
+ fonts-kalapi : Предзависит: dpkg (>= 1.15.6~)
+
+ fonts-smc : Предзависит: dpkg (>= 1.15.6~)
+
+ install-info : Предзависит: dpkg (>= 1.16.1)
+
+ ipmiutil : Предзависит: dpkg (>= 1.15.7.2)
+
+ language-pack-en : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-en-base : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-gnome-en : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-gnome-en-base : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-gnome-ru : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-gnome-ru-base : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-ru : Предзависит: dpkg (>= 1.16.1)
+
+ language-pack-ru-base : Предзависит: dpkg (>= 1.16.1)
+
+ language-selector-common : Предзависит: dpkg (>= 1.15.7.2)
+
+ libdpkg-perl : Зависит: dpkg (>= 1.18.11)
+
+ libpaper1 : Зависит: dpkg (>= 1.17.2)
+
+ libsane-common : Предзависит: dpkg (>= 1.15.7.2)
+
+ libsmbclient : Предзависит: dpkg (>= 1.15.6~)
+
+ libwbclient0 : Предзависит: dpkg (>= 1.15.6~)
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+ mysql-apt-config : Предзависит: dpkg (>= 1.15)
+
+ openssh-client : Зависит: dpkg (>= 1.7.0)
+
+ openssh-server : Зависит: dpkg (>= 1.9.0)
+
+ perl : Предзависит: dpkg (>= 1.17.17)
+
+ perl-base : Предзависит: dpkg (>= 1.17.17)
+
+ perl-modules-5.34 : Предзависит: dpkg (>= 1.17.17)
+
+ pigz : Предзависит: dpkg (>= 1.15.6)
+
+ poppler-data : Предзависит: dpkg (>= 1.15.6~)
+
+ python3-minimal : Зависит: dpkg (>= 1.13.20)
+
+ sgml-base : Предзависит: dpkg (>= 1.16.4)
+
+ ubuntu-drivers-common : Предзависит: dpkg (>= 1.15.7.2)
+
+ update-notifier-common : Предзависит: dpkg (>= 1.15.7.2)
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 1 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb-server-10.6
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt-get --purge remove mariadb-server-10.6
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 1 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ apt-get --purge remove mariadb-server-10.6
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 1 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-client самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo dpkg --configure -a
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server:
+
+ mariadb-server зависит от mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-server-10.6 не установлен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-server
+
+sergey@sergey-VirtualBox:~$ sudo apt-get install -f
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 1 пакетов.
+
+Необходимо скачать 0 B/4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+/var/lib/mysql: found previous version 8.0
+
+The file /var/lib/mysql/debian-8.0.flag indicates a
+
+version that cannot automatically be upgraded. Therefore the
+
+previous data directory will be renamed to /var/lib/mysql-8.0 and
+
+a new data directory will be initialized at /var/lib/mysql.
+
+Please manually export/import your data (e.g. with mysqldump) if needed.
+
+mv: невозможно переместить '/var/lib/mysql' в '/var/lib/mysql-8.0/mysql': Каталог не пуст
+
+dpkg: ошибка при обработке архива /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb (--unpack):
+
+ подпроцесс из пакета mariadb-server-10.6 новый сценарий pre-installation возвратил код ошибки 1
+
+При обработке следующих пакетов произошли ошибки:
+
+ /var/cache/apt/archives/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb
+
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+
+sergey@sergey-VirtualBox:~$ sudo apt-get clean && sudo apt-get update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                              
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                                                
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                 
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease        
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-client самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo mysql
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt-get clean && sudo apt-get update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                       
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                     
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                       
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                        
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease        
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo dpkg --configure -a
+
+dpkg: зависимости пакетов не позволяют настроить пакет mariadb-server:
+
+ mariadb-server зависит от mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1), однако:
+
+  Пакет mariadb-server-10.6 не установлен.
+
+
+
+dpkg: ошибка при обработке пакета mariadb-server (--configure):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ mariadb-server
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                                                
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                                                              
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                                                                                
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                                                                 
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease        
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt-get install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo service mysql stop
+
+^[[AFailed to stop mysql.service: Unit mysql.service not loaded.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Failed to restart mysql.service: Unit mysql.service not found.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+Unit mysql.service could not be found.
+
+sergey@sergey-VirtualBox:~$ sudo apt-get uninstall
+
+E: Неверная операция uninstall
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server mariadb-client 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-client самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ mysql -u root  -p
+
+Enter password: 
+
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Пол:2 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                        
+
+Сущ:4 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                      
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                         
+
+Ошб:2 http://repo.mysql.com/apt/debian jessie InRelease                                                  
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt-get install mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+ mysql-server : Зависит: mysql-server-8.0 но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ /etc/my.cnf
+
+bash: /etc/my.cnf: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ apt install mariadb-server -y
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ dpkg -l | grep -E 'mysql|mariadb'
+
+ii  libdbd-mysql-perl:amd64                    4.050-5ubuntu0.22.04.1                  amd64        Perl5 database interface to the MariaDB/MySQL database
+
+ii  libmariadb3:amd64                          1:10.6.16-0ubuntu0.22.04.1              amd64        MariaDB database client library
+
+ii  libmysqlclient21:amd64                     8.0.36-0ubuntu0.22.04.1                 amd64        MySQL database client library
+
+ii  mariadb-client                             1:10.6.16-0ubuntu0.22.04.1              all          MariaDB database client (metapackage depending on the latest version)
+
+ii  mariadb-client-10.6                        1:10.6.16-0ubuntu0.22.04.1              amd64        MariaDB database client binaries
+
+ii  mariadb-client-core-10.6                   1:10.6.16-0ubuntu0.22.04.1              amd64        MariaDB database core client binaries
+
+ii  mariadb-common                             1:10.6.16-0ubuntu0.22.04.1              all          MariaDB common configuration files
+
+iU  mariadb-server                             1:10.6.16-0ubuntu0.22.04.1              all          MariaDB database server (metapackage depending on the latest version)
+
+ic  mariadb-server-10.6                        1:10.6.16-0ubuntu0.22.04.1              amd64        MariaDB database server binaries
+
+ii  mariadb-server-core-10.6                   1:10.6.16-0ubuntu0.22.04.1              amd64        MariaDB database core server files
+
+ii  mysql-apt-config                           0.8.15-1                                all          Auto configuration for MySQL APT Repo.
+
+ii  mysql-common                               5.8+1.0.8                               all          MySQL database common files, e.g. /etc/mysql/my.cnf
+
+sergey@sergey-VirtualBox:~$ apt purge mysql-common
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:~$ sudo apt purge mysql-common
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ libmysqlclient21 : Зависит: mysql-common (>= 5.5) но он не будет установлен
+
+ mariadb-common : Зависит: mysql-common (>= 5.6.25) но он не будет установлен
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ cd /etc/mysql /var/lib/mysql
+
+bash: cd: слишком много аргументов
+
+sergey@sergey-VirtualBox:~$ cd /etc/mysql/var/lib/mysql
+
+bash: cd: /etc/mysql/var/lib/mysql: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ cd /etc/
+
+sergey@sergey-VirtualBox:/etc$ cd /etc/mysql/var/lib/mysql
+
+bash: cd: /etc/mysql/var/lib/mysql: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/etc$ cd /etc/mysql/
+
+sergey@sergey-VirtualBox:/etc/mysql$ cd /etc/mysql/var/
+
+bash: cd: /etc/mysql/var/: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/etc/mysql$ cd /etc/mysql/var/
+
+bash: cd: /etc/mysql/var/: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/etc/mysql$ cd ~/etc/mysql/var/
+
+bash: cd: /home/sergey/etc/mysql/var/: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/etc/mysql$ cd /etc/mysql/var/lib/mysql
+
+bash: cd: /etc/mysql/var/lib/mysql: Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:/etc/mysql$ rm -rf /etc/mysql 
+
+rm: невозможно удалить '/etc/mysql/debian.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/mariadb.conf.d/60-galera.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/mariadb.conf.d/50-mysql-clients.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/mariadb.conf.d/50-client.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/mariadb.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/my.cnf.fallback': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/my.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/conf.d/mysqldump.cnf': Отказано в доступе
+
+rm: невозможно удалить '/etc/mysql/conf.d/mysql.cnf': Отказано в доступе
+
+sergey@sergey-VirtualBox:/etc/mysql$ sudo rm -rf /etc/mysql 
+
+sergey@sergey-VirtualBox:/etc/mysql$ cd
+
+sergey@sergey-VirtualBox:~$ cd /var/lib/mysql
+
+bash: cd: /var/lib/mysql: Отказано в доступе
+
+sergey@sergey-VirtualBox:~$ cd /var/
+
+sergey@sergey-VirtualBox:/var$ cd /var/lib/
+
+sergey@sergey-VirtualBox:/var/lib$ cd /var/lib/mysql
+
+bash: cd: /var/lib/mysql: Отказано в доступе
+
+sergey@sergey-VirtualBox:/var/lib$ sudo rm -rf /var/lib/mysql
+
+sergey@sergey-VirtualBox:/var/lib$ apt install mariadb-server
+
+E: Не удалось открыть файл блокировки /var/lib/dpkg/lock-frontend - open (13: Отказано в доступе)
+
+E: Невозможно получить блокировку внешнего интерфейса dpkg (/var/lib/dpkg/lock-frontend); у вас есть права суперпользователя?
+
+sergey@sergey-VirtualBox:/var/lib$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:/var/lib$ cd
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Вы можете запустить «apt --fix-broken install» для исправления этих ошибок.
+
+Следующие пакеты имеют неудовлетворённые зависимости:
+
+ mariadb-server : Зависит: mariadb-server-10.6 (>= 1:10.6.16-0ubuntu0.22.04.1) но он не будет установлен
+
+E: Неудовлетворённые зависимости. Попытайтесь выполнить «apt --fix-broken install», не указывая имени пакета (или указав решение).
+
+sergey@sergey-VirtualBox:~$ sudo apt --fix-broken install
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Исправление зависимостей… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  mariadb-server-10.6
+
+Предлагаемые пакеты:
+
+  mailx mariadb-test
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mariadb-server-10.6
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Установлено или удалено не до конца 1 пакетов.
+
+Необходимо скачать 4.142 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 67,5 MB.
+
+Хотите продолжить? [Д/н] y
+
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 mariadb-server-10.6 amd64 1:10.6.16-0ubuntu0.22.04.1 [4.142 kB]
+
+Получено 4.142 kB за 1с (4.757 kB/s)             
+
+Предварительная настройка пакетов …
+
+(Чтение базы данных … на данный момент установлено 211039 файлов и каталогов.)
+
+Подготовка к распаковке …/mariadb-server-10.6_1%3a10.6.16-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mariadb-server-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-server-10.6 (1:10.6.16-0ubuntu0.22.04.1) …
+
+Настраивается пакет mariadb-server (1:10.6.16-0ubuntu0.22.04.1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+sergey@sergey-VirtualBox:~$ sudo apt install mariadb-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mariadb-server самой новой версии (1:10.6.16-0ubuntu0.22.04.1).
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libevent-core-2.1-7 libevent-pthreads-2.1-7 libmecab2 libprotobuf-lite23 mecab-ipadic mecab-ipadic-utf8 mecab-utils
+
+Для их удаления используйте «sudo apt autoremove».
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo mysql
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+
+Your MariaDB connection id is 31
+
+Server version: 10.6.16-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+MariaDB [(none)]> SHOW DATABASES;
+
++--------------------+
+
+| Database           |
+
++--------------------+
+
+| information_schema |
+
+| mysql              |
+
+| performance_schema |
+
+| sys                |
+
++--------------------+
+
+4 rows in set (0,000 sec)
+
+
+
