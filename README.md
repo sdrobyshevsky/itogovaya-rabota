@@ -33,6 +33,10 @@ Linux
 Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.
 
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(89).png)
+
+
+
 Задание 4
 Установить и удалить deb-пакет с помощью dpkg.
 
