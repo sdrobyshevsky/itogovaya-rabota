@@ -1,3 +1,5 @@
+# Решение проблем с установкой и запуском MySQL сервера: 
+
 sergey@sergey-VirtualBox:~$ sudo apt install mysql-server
 
 [sudo] пароль для sergey: 
