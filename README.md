@@ -230,6 +230,7 @@ ls Животный_мир/*
 
 Программа реализована на языке Java и находится в репозитории папка Programm.
 
+https://github.com/sdrobyshevsky/itogovaya-rabota/tree/main/Programm
 
 Задача 15
 Создайте класс Счетчик, у которого есть метод add(), увеличивающий̆
