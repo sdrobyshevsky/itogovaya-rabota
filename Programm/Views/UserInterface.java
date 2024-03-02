@@ -12,7 +12,7 @@ import Programm.Model.PackAnimal;
 import Programm.Model.HomeAnimal;
 
 public class UserInterface {
-    Pet pets;
+    HomeAnimal homeAnimals;
     PackAnimal packAnimals;
 
     public void showMenu(List<String> displayedMenu, String nameMenu) {
