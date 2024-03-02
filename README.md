@@ -12,11 +12,15 @@ Linux
 
 Выполнениие команды:
 
-cat > "Домашние животные.txt"
-cat > "Вьючные животные.txt"
-cat "Домашние животные.txt" "Вьючные животные.txt" > "Друзья человека.txt"
-cat "Друзья человека.txt"
+cat > Домашние_животные
+собака
+кот
+хомяк
 
+cat > Вьючные_животные
+лошадь
+верблюд
+осел
 
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/Снимок%20экрана%20(76).png) 
 
@@ -24,7 +28,12 @@ cat "Друзья человека.txt"
 
 Объединение, переименование файлов
 
+cat Домашние_животные Вьючные_животные > Животные
+
+cat Животные
+
 mkdir > "Питомниик"
+
 mv "Друзья человека.txt" /home/mv/Питомник
 
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(81).png)
