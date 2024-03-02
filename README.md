@@ -131,24 +131,31 @@ Linux
 Задание 10
 Удалить из таблицы верблюдов, т.к. верблюдов решили перевезти в другой питомник на зимовку.
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(132).png)
+
 
 Объединить таблицы лошади, и ослы в одну таблицу.
 
-
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(133).png)
 
 
 Задача 11
 Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(134).png)
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(135).png)
 
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(137).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(138).png)
+
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(139).png)
 
 Задача 12
 Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
 
-
-
-
+![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(142).png)
 
 Задача 13 
 Создать класс с Инкапсуляцией методов и наследованием по диаграмме.
