@@ -1,0 +1,2110 @@
+sergey@sergey-VirtualBox:~$ sudo apt install mysql-server
+
+[sudo] пароль для sergey: 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mysql-server самой новой версии (8.0.36-0ubuntu0.22.04.1).
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+× mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Sat 2024-03-02 15:21:02 +03; 1h 40min ago
+
+    Process: 71453 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=1/FAILURE)
+
+        CPU: 4ms
+
+
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 15:21:02 sergey-VirtualBox mysql-systemd-start[71453]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 15:21:02 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+lines 1-16/16 (END)
+
+sergey@sergey-VirtualBox:~$ sudo ss -tap | grep mysql
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo journalctl -u mysql
+
+сне 24 13:52:25 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 13:52:25 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: mysql.service: Consumed 6.309s CPU time.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 14:22:47 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 66de6686b0d8477c9fa39e260c8e93bc --
+
+сне 24 20:00:09 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 20:00:16 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 21:42:26 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: mysql.service: Consumed 18.760s CPU time.
+
+-- Boot 8099cc7dcdff4116911bfbdf3b7cae2f --
+
+сне 24 21:42:37 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 21:42:43 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 9e26263f612f4bc298325ced7b1465a8 --
+
+сне 24 22:01:04 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 22:01:12 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 22:13:19 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: mysql.service: Consumed 3.198s CPU time.
+
+-- Boot eca4f39b8c9249e89c339f29b329faa7 --
+
+сне 24 22:13:31 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 22:13:34 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 8db82e7e621745d3a3222e112a21e8f6 --
+
+сне 30 09:29:58 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 30 09:30:02 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 734d5a159a0241feade51aac161a0914 --
+
+сту 13 10:38:48 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 13 10:38:52 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сту 13 13:08:12 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сту 13 13:08:13 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+lines 1-36
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo journalctl -u mysql
+
+сне 24 13:52:25 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 13:52:25 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: mysql.service: Consumed 6.309s CPU time.
+
+сне 24 14:22:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 14:22:47 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 66de6686b0d8477c9fa39e260c8e93bc --
+
+сне 24 20:00:09 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 20:00:16 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 21:42:26 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 21:42:27 sergey-VirtualBox systemd[1]: mysql.service: Consumed 18.760s CPU time.
+
+-- Boot 8099cc7dcdff4116911bfbdf3b7cae2f --
+
+сне 24 21:42:37 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 21:42:43 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 9e26263f612f4bc298325ced7b1465a8 --
+
+сне 24 22:01:04 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 22:01:12 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сне 24 22:13:19 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сне 24 22:13:21 sergey-VirtualBox systemd[1]: mysql.service: Consumed 3.198s CPU time.
+
+-- Boot eca4f39b8c9249e89c339f29b329faa7 --
+
+сне 24 22:13:31 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 24 22:13:34 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 8db82e7e621745d3a3222e112a21e8f6 --
+
+сне 30 09:29:58 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сне 30 09:30:02 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 734d5a159a0241feade51aac161a0914 --
+
+сту 13 10:38:48 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 13 10:38:52 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сту 13 13:08:12 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сту 13 13:08:13 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сту 13 13:08:13 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сту 13 13:08:13 sergey-VirtualBox systemd[1]: mysql.service: Consumed 25.013s CPU time.
+
+-- Boot e4128b123de04d4eb077f580b7788184 --
+
+сту 13 13:08:40 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 13 13:08:44 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 4f04aac8a7da4292889d61846f533696 --
+
+сту 14 22:44:33 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 14 22:44:39 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 4491c33b39f24b31946ed15551465c10 --
+
+сту 14 23:26:44 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 14 23:26:59 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сту 15 00:40:31 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сту 15 00:40:46 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сту 15 00:40:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сту 15 00:40:46 sergey-VirtualBox systemd[1]: mysql.service: Consumed 33.975s CPU time.
+
+-- Boot 747af69dec564b64afda5a47c8b55621 --
+
+сту 17 23:11:28 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 17 23:11:48 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot bc6ca18d123f43ba801ca70561d68fe1 --
+
+сту 19 11:40:49 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 19 11:41:08 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 7ddd4ab5c90646d3b0bcfc7797d2ac7d --
+
+сту 19 18:47:43 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 19 18:48:02 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+сту 20 02:31:16 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+сту 20 02:31:17 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сту 20 02:31:17 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сту 20 02:31:17 sergey-VirtualBox systemd[1]: mysql.service: Consumed 2min 27.831s CPU time.
+
+-- Boot 55a23a58cde344239a983e3f88df6e61 --
+
+сту 20 10:07:49 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сту 20 10:08:07 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot d157deafd5014c46bdc469e09d46bfee --
+
+лют 22 21:25:11 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+лют 22 21:25:31 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot 22e8c013179544058fa3d37393ea52bf --
+
+лют 26 23:17:44 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+лют 26 23:18:03 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+лют 26 23:40:05 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+лют 26 23:40:07 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+лют 26 23:40:07 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+лют 26 23:40:07 sergey-VirtualBox systemd[1]: mysql.service: Consumed 8.529s CPU time.
+
+лют 26 23:40:38 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+лют 26 23:40:39 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+-- Boot d2a17925e7f34f78851a33dfc8689e1d --
+
+лют 27 00:55:59 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+лют 27 00:56:18 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+лют 27 01:09:56 sergey-VirtualBox systemd[1]: Stopping MySQL Community Server...
+
+лют 27 01:09:58 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+лют 27 01:09:58 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+лют 27 01:09:58 sergey-VirtualBox systemd[1]: mysql.service: Consumed 6.980s CPU time.
+
+-- Boot d8e6171a83ab48e3b798e6ee9213455f --
+
+сак 02 12:05:32 sergey-VirtualBox systemd[1]: Starting LSB: Start and stop the mysql database server daemon...
+
+сак 02 12:05:32 sergey-VirtualBox systemd[1]: Started LSB: Start and stop the mysql database server daemon.
+
+сак 02 12:21:32 sergey-VirtualBox systemd[1]: Stopping LSB: Start and stop the mysql database server daemon...
+
+сак 02 12:21:32 sergey-VirtualBox systemd[1]: mysql.service: Deactivated successfully.
+
+сак 02 12:21:32 sergey-VirtualBox systemd[1]: Stopped LSB: Start and stop the mysql database server daemon.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:28:50 sergey-VirtualBox mysql-systemd-start[14739]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:28:50 sergey-VirtualBox mysql-systemd-start[14740]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:50 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:28:51 sergey-VirtualBox mysql-systemd-start[14741]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:28:51 sergey-VirtualBox mysql-systemd-start[14742]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:28:51 sergey-VirtualBox mysql-systemd-start[14743]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:28:51 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:06 sergey-VirtualBox mysql-systemd-start[14747]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:06 sergey-VirtualBox mysql-systemd-start[14748]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:06 sergey-VirtualBox mysql-systemd-start[14749]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:06 sergey-VirtualBox mysql-systemd-start[14750]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:06 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:07 sergey-VirtualBox mysql-systemd-start[14751]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:07 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:32 sergey-VirtualBox mysql-systemd-start[14960]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:32 sergey-VirtualBox mysql-systemd-start[14961]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:32 sergey-VirtualBox mysql-systemd-start[14962]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:32 sergey-VirtualBox mysql-systemd-start[14963]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:32 sergey-VirtualBox mysql-systemd-start[14964]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:32 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:33 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 12:29:33 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:33 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 12:29:33 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:33 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:45 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:45 sergey-VirtualBox mysql-systemd-start[14974]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:45 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:45 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:45 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:46 sergey-VirtualBox mysql-systemd-start[14975]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:46 sergey-VirtualBox mysql-systemd-start[14976]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:46 sergey-VirtualBox mysql-systemd-start[14977]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:29:46 sergey-VirtualBox mysql-systemd-start[14978]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:46 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:29:47 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 12:29:47 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:29:47 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 12:29:47 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:29:47 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:30:02 sergey-VirtualBox mysql-systemd-start[14991]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:30:02 sergey-VirtualBox mysql-systemd-start[14992]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:02 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:30:03 sergey-VirtualBox mysql-systemd-start[14993]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:30:03 sergey-VirtualBox mysql-systemd-start[14994]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 12:30:03 sergey-VirtualBox mysql-systemd-start[14995]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 12:30:03 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 13:09:54 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 13:09:54 sergey-VirtualBox mysql-systemd-start[49790]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN >
+
+lines 249-284
+
+sergey@sergey-VirtualBox:~$ sudo service mysql stop
+
+sergey@sergey-VirtualBox:~$ sudo rsync -avz /etc/mysql /root/mysql-backup
+
+sending incremental file list
+
+created directory /root/mysql-backup
+
+mysql/
+
+mysql/FROZEN -> ../../usr/share/doc/mysql-common/frozen-mode/downgrade
+
+mysql/debian-start
+
+mysql/debian.cnf
+
+mysql/debian.cnf-8.0
+
+mysql/mariadb.cnf
+
+mysql/my.cnf -> /etc/alternatives/my.cnf
+
+mysql/my.cnf.fallback
+
+mysql/mysql.cnf
+
+mysql/conf.d/
+
+mysql/conf.d/mysql.cnf
+
+mysql/conf.d/mysqldump.cnf
+
+mysql/mariadb.conf.d/
+
+mysql/mariadb.conf.d/50-client.cnf
+
+mysql/mariadb.conf.d/50-mysql-clients.cnf
+
+mysql/mariadb.conf.d/50-mysqld_safe.cnf
+
+mysql/mariadb.conf.d/50-server.cnf
+
+mysql/mariadb.conf.d/60-galera.cnf
+
+mysql/mysql.conf.d/
+
+mysql/mysql.conf.d/mysql.cnf
+
+mysql/mysql.conf.d/mysqld.cnf
+
+
+
+sent 5.986 bytes  received 372 bytes  12.716,00 bytes/sec
+
+total size is 11.996  speedup is 1,89
+
+sergey@sergey-VirtualBox:~$ sudo rm -rf /var/lib/mysql/*
+
+sergey@sergey-VirtualBox:~$ sudo mysqld --initialize
+
+mysqld: Can't create directory '/var/lib/mysql/' (OS errno 13 - Permission denied)
+
+2024-03-02T14:05:58.218248Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.36-0ubuntu0.22.04.1) initializing of server in progress as process 85960
+
+2024-03-02T14:05:58.245641Z 0 [ERROR] [MY-013236] [Server] The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.
+
+2024-03-02T14:05:58.245795Z 0 [ERROR] [MY-010119] [Server] Aborting
+
+2024-03-02T14:05:58.245966Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.36-0ubuntu0.22.04.1)  (Ubuntu).
+
+sergey@sergey-VirtualBox:~$ sudo chown -R mysql: /var/lib/mysql
+
+chown: невозможно получить доступ к '/var/lib/mysql': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ sudo service mysql start
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo apt install pv
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Предлагаемые пакеты:
+
+  doc-base
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  pv
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Необходимо скачать 44,5 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 139 kB.
+
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 pv amd64 1.6.6-1build2 [44,5 kB]
+
+Получено 44,5 kB за 0с (389 kB/s)
+
+Выбор ранее не выбранного пакета pv.
+
+(Чтение базы данных … на данный момент установлено 210785 файлов и каталогов.)
+
+Подготовка к распаковке …/pv_1.6.6-1build2_amd64.deb …
+
+Распаковывается pv (1.6.6-1build2) …
+
+Настраивается пакет pv (1.6.6-1build2) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+sergey@sergey-VirtualBox:~$ pv ~/fulldump.sql | mysql
+
+pv: /home/sergey/fulldump.sql: Нет такого файла или каталога
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                      
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                    
+
+Пол:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]                              
+
+Пол:5 http://repo.mysql.com/apt/ubuntu jammy InRelease [20,2 kB]
+
+Ошб:5 http://repo.mysql.com/apt/ubuntu jammy InRelease
+
+  Следующие подписи не могут быть проверены, так как недоступен открытый ключ: NO_PUBKEY B7B3B788A8D3785C
+
+Чтение списков пакетов… Готово
+
+W: Ошибка GPG: http://repo.mysql.com/apt/ubuntu jammy InRelease: Следующие подписи не могут быть проверены, так как недоступен открытый ключ: NO_PUBKEY B7B3B788A8D3785C
+
+E: Репозиторий «http://repo.mysql.com/apt/ubuntu jammy InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt install mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет mysql-server самой новой версии (8.0.36-0ubuntu0.22.04.1).
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo mysql
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql*
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.24-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.24-1_all.deb~»
+
+E: Невозможно найти пакет mysql-apt-config_0.8.28-1_all.deb~
+
+E: Не удалось найти ни один пакет с помощью шаблона «mysql-apt-config_0.8.28-1_all.deb~»
+
+E: Не удалось найти ни один пакет с помощью регулярного выражения «mysql-apt-config_0.8.28-1_all.deb~»
+
+sergey@sergey-VirtualBox:~$ dpkg -l | grep mysql
+
+ii  mysql-apt-config                           0.8.24-1                                all          Auto configuration for MySQL APT Repo.
+
+ii  mysql-client-8.0                           8.0.36-0ubuntu0.22.04.1                 amd64        MySQL database client binaries
+
+ii  mysql-client-core-8.0                      8.0.36-0ubuntu0.22.04.1                 amd64        MySQL database core client binaries
+
+ii  mysql-common                               5.8+1.0.8                               all          MySQL database common files, e.g. /etc/mysql/my.cnf
+
+ii  mysql-server                               8.0.36-0ubuntu0.22.04.1                 all          MySQL database server (metapackage depending on the latest version)
+
+ri  mysql-server-8.0                           8.0.36-0ubuntu0.22.04.1                 amd64        MySQL database server binaries and system database setup
+
+ii  mysql-server-core-8.0                      8.0.36-0ubuntu0.22.04.1                 amd64        MySQL database server binaries
+
+sergey@sergey-VirtualBox:~$ sudo apt-get remove --purge mysql-apt-config
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mysql-apt-config*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 0 пакетов не обновлено.
+
+После данной операции объём занятого дискового пространства уменьшится на 35,8 kB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлено 210793 файла и каталога.)
+
+Удаляется mysql-apt-config (0.8.24-1) …
+
+(Чтение базы данных … на данный момент установлено 210788 файлов и каталогов.)
+
+Вычищаются файлы настройки пакета mysql-apt-config (0.8.24-1) …
+
+sergey@sergey-VirtualBox:~$ sudo rm -rf /etc/mysql /var/lib/mysql
+
+sergey@sergey-VirtualBox:~$ sudo apt-get autoremove
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+sergey@sergey-VirtualBox:~$ sudo apt-get autoclean
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+sergey@sergey-VirtualBox:~$ wget http://repo.mysql.com/mysql-apt-config_0.8.15-1_all.deb
+
+--2024-03-02 17:11:49--  http://repo.mysql.com/mysql-apt-config_0.8.15-1_all.deb
+
+Распознаётся repo.mysql.com (repo.mysql.com)… 104.81.113.179, 2a02:26f0:d200:888::1d68, 2a02:26f0:d200:889::1d68
+
+Подключение к repo.mysql.com (repo.mysql.com)|104.81.113.179|:80... соединение установлено.
+
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+
+Длина: 35532 (35K) [application/x-debian-package]
+
+Сохранение в: ‘mysql-apt-config_0.8.15-1_all.deb’
+
+
+
+mysql-apt-config_0.8.15-1_all.deb             100%[==============================================================================================>]  34,70K  --.-KB/s    за 0s      
+
+
+
+2024-03-02 17:11:49 (288 MB/s) - ‘mysql-apt-config_0.8.15-1_all.deb’ сохранён [35532/35532]
+
+
+
+sergey@sergey-VirtualBox:~$ sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+
+Выбор ранее не выбранного пакета mysql-apt-config.
+
+(Чтение базы данных … на данный момент установлено 210788 файлов и каталогов.)
+
+Подготовка к распаковке mysql-apt-config_0.8.15-1_all.deb …
+
+Распаковывается mysql-apt-config (0.8.15-1) …
+
+Настраивается пакет mysql-apt-config (0.8.15-1) …
+
+Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
+
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+
+OK
+
+sergey@sergey-VirtualBox:~$ sudo apt update && sudo apt install mysql-server
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                              
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                                                
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                          
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ 
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo service mysql start 
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo /etc/init.d/mysql start
+
+Starting mysql (via systemctl): mysql.serviceJob for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+ failed!
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ mysql -u root  -p
+
+Enter password: 
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo mysql_secure_installation
+
+
+
+Securing the MySQL server deployment.
+
+
+
+Enter password for user root: 
+
+Error: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ ps xa | grep mysqld | grep -v mysqld
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql   
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$  sudo systemctl status mysql
+
+× mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Sat 2024-03-02 17:16:57 +03; 12s ago
+
+    Process: 88949 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=1/FAILURE)
+
+        CPU: 4ms
+
+
+
+сак 02 17:16:56 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 17:16:56 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:16:56 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 17:16:57 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 17:16:57 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 17:16:57 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 17:16:57 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:16:57 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$  sudo netstat -tlpn | grep "mysql"
+
+sudo: netstat: команда не найдена
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$  sudo netstat -tlpn | grep "mysql"
+
+sudo: netstat: команда не найдена
+
+sergey@sergey-VirtualBox:~$ sudo netstat -tlpn | grep mysql
+
+sudo: netstat: команда не найдена
+
+sergey@sergey-VirtualBox:~$ sudo mysqladmin version -p
+
+Enter password: 
+
+mysqladmin: connect to server at 'localhost' failed
+
+error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+
+Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
+
+sergey@sergey-VirtualBox:~$ sudo mysqladmin -i 5 status
+
+mysqladmin: connect to server at 'localhost' failed
+
+error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+
+Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
+
+sergey@sergey-VirtualBox:~$ sudo systemctl start mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo nano /etc/mysql/mysql.conf.d/mysql.cnf
+
+sergey@sergey-VirtualBox:~$ sudo chown mysql:mysql /var/run/mysqld/
+
+chown: невозможно получить доступ к '/var/run/mysqld/': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ sudo chown mysql:mysql /var/run/mysql/
+
+chown: невозможно получить доступ к '/var/run/mysql/': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ sudo chmod -R 755 /var/run/mysqld/
+
+chmod: невозможно получить доступ к '/var/run/mysqld/': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ sudo chmod -R 755 /var/run/mysql/
+
+chmod: невозможно получить доступ к '/var/run/mysql/': Нет такого файла или каталога
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ systemctl status mysql.service
+
+× mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Sat 2024-03-02 17:24:22 +03; 22s ago
+
+    Process: 90001 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=1/FAILURE)
+
+        CPU: 4ms
+
+
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ systemctl status mysql.service
+
+× mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Sat 2024-03-02 17:24:22 +03; 2min 22s ago
+
+    Process: 90001 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=1/FAILURE)
+
+        CPU: 4ms
+
+
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:24:22 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ mysql -u root  -p
+
+Enter password: 
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ wget http://repo.mysql.com/mysql-apt-config_0.8.15-1_all.deb
+
+--2024-03-02 17:27:12--  http://repo.mysql.com/mysql-apt-config_0.8.15-1_all.deb
+
+Распознаётся repo.mysql.com (repo.mysql.com)… 104.81.113.179, 2a02:26f0:d200:888::1d68, 2a02:26f0:d200:889::1d68
+
+Подключение к repo.mysql.com (repo.mysql.com)|104.81.113.179|:80... соединение установлено.
+
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+
+Длина: 35532 (35K) [application/x-debian-package]
+
+Сохранение в: ‘mysql-apt-config_0.8.15-1_all.deb.1’
+
+
+
+mysql-apt-config_0.8.15-1_all.deb.1           100%[==============================================================================================>]  34,70K  --.-KB/s    за 0,01s   
+
+
+
+2024-03-02 17:27:12 (2,57 MB/s) - ‘mysql-apt-config_0.8.15-1_all.deb.1’ сохранён [35532/35532]
+
+
+
+sergey@sergey-VirtualBox:~$ sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+
+(Чтение базы данных … на данный момент установлено 210793 файла и каталога.)
+
+Подготовка к распаковке mysql-apt-config_0.8.15-1_all.deb …
+
+Распаковывается mysql-apt-config (0.8.15-1) на замену (0.8.15-1) …
+
+Настраивается пакет mysql-apt-config (0.8.15-1) …
+
+Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
+
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+
+OK
+
+sergey@sergey-VirtualBox:~$ mysql -u root  -p
+
+Enter password: 
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                        
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                      
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease                                         
+
+Пол:5 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]
+
+Ошб:5 http://repo.mysql.com/apt/debian jessie InRelease
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo systemctl restart mysql
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+× mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+
+     Active: failed (Result: exit-code) since Sat 2024-03-02 17:28:11 +03; 14s ago
+
+    Process: 91228 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=1/FAILURE)
+
+        CPU: 4ms
+
+
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: mysql.service: Control process exited, code=exited, status=1/FAILURE
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: Stopped MySQL Community Server.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: mysql.service: Start request repeated too quickly.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: mysql.service: Failed with result 'exit-code'.
+
+сак 02 17:28:11 sergey-VirtualBox systemd[1]: Failed to start MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo systemctl unmask mysql.service
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ mysql
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+sergey@sergey-VirtualBox:~$ sudo apt purge mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl libmecab2 libprotobuf-lite23
+
+  mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server-8.0 mysql-server-core-8.0
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mysql-server*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 0 пакетов не обновлено.
+
+После данной операции объём занятого дискового пространства уменьшится на 35,8 kB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлено 210793 файла и каталога.)
+
+Удаляется mysql-server (8.0.36-0ubuntu0.22.04.1) …
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ ps aux | grep bash
+
+sergey     85002  0.0  0.1  13816  5632 pts/0    Ss   16:59   0:00 bash
+
+sergey     91529  0.0  0.0  11776  2688 pts/0    S+   17:29   0:00 grep --color=auto bash
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo apt update && sudo apt install mysql-server
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                               
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                             
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                                               
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                            
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease        
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+Job for mysql.service failed because the control process exited with error code.
+
+See "systemctl status mysql.service" and "journalctl -xeu mysql.service" for details.
+
+sergey@sergey-VirtualBox:~$ sudo apt update && sudo apt install mysql-server
+
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                                
+
+Сущ:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                              
+
+Пол:4 http://repo.mysql.com/apt/debian jessie InRelease [28,8 kB]                                                                
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                        
+
+Ошб:4 http://repo.mysql.com/apt/debian jessie InRelease
+
+  Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+Чтение списков пакетов… Готово
+
+W: http://repo.mysql.com/apt/debian/dists/jessie/InRelease: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+
+W: Ошибка GPG: http://repo.mysql.com/apt/debian jessie InRelease: Следующие подписи неверны: EXPKEYSIG 8C718D3B5072E1F5 MySQL Release Engineering <mysql-build@oss.oracle.com>
+
+E: Репозиторий «http://repo.mysql.com/apt/debian jessie InRelease» не подписан.
+
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+sergey@sergey-VirtualBox:~$ sudo apt autoremove --purge mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Пакет «mysql-server» не установлен, поэтому не может быть удалён
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  libaio1* libcgi-fast-perl* libcgi-pm-perl* libevent-core-2.1-7* libevent-pthreads-2.1-7* libfcgi-bin* libfcgi-perl* libfcgi0ldbl* libhtml-template-perl* libmecab2*
+
+  libprotobuf-lite23* mecab-ipadic* mecab-ipadic-utf8* mecab-utils* mysql-client-8.0* mysql-client-core-8.0* mysql-common* mysql-server-8.0* mysql-server-core-8.0*
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 19 пакетов, и 0 пакетов не обновлено.
+
+После данной операции объём занятого дискового пространства уменьшится на 242 MB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлен 210791 файл и каталог.)
+
+Удаляется mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+update-alternatives: предупреждение: альтернатива /etc/mysql/my.cnf.fallback (часть группы ссылок my.cnf) не существует; удаляется из списка альтернатив
+
+update-alternatives: предупреждение: /etc/alternatives/my.cnf является повисшей; значение будет заменено лучшим выбором
+
+Удаляется mysql-server-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется libaio1:amd64 (0.3.112-13build1) …
+
+Удаляется libcgi-fast-perl (1:2.15-1) …
+
+Удаляется libhtml-template-perl (2.97-1.1) …
+
+Удаляется libcgi-pm-perl (4.54-1) …
+
+Удаляется libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Удаляется libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Удаляется libfcgi-bin (2.4.2-2build2) …
+
+Удаляется libfcgi-perl:amd64 (0.82+ds-1build1) …
+
+Удаляется libfcgi0ldbl:amd64 (2.4.2-2build2) …
+
+Удаляется mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+
+update-alternatives: используется /var/lib/mecab/dic/ipadic для предоставления /var/lib/mecab/dic/debian (mecab-dictionary) в автоматическом режиме
+
+Удаляется mecab-ipadic (2.7.0-20070801+main-3) …
+
+Удаляется mecab-utils (0.996-14build9) …
+
+Удаляется libmecab2:amd64 (0.996-14build9) …
+
+Удаляется libprotobuf-lite23:amd64 (3.12.4-1ubuntu7.22.04.1) …
+
+Удаляется mysql-client-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется mysql-client-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Удаляется mysql-common (5.8+1.0.8) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.6) …
+
+(Чтение базы данных … на данный момент установлено 210419 файлов и каталогов.)
+
+Вычищаются файлы настройки пакета mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Вычищаются файлы настройки пакета libmecab2:amd64 (0.996-14build9) …
+
+Вычищаются файлы настройки пакета mysql-common (5.8+1.0.8) …
+
+sergey@sergey-VirtualBox:~$ sudo rm -rf /var/lib/mysql
+
+sergey@sergey-VirtualBox:~$ sudo rm -rf /etc/mysql/
+
+sergey@sergey-VirtualBox:~$ sudo mkdir -p /etc/mysql/conf.d
+
+sergey@sergey-VirtualBox:~$ sudo apt install mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Будут установлены следующие дополнительные пакеты:
+
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl libmecab2 libprotobuf-lite23
+
+  mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server-8.0 mysql-server-core-8.0
+
+Предлагаемые пакеты:
+
+  libipc-sharedcache-perl mailx tinyca
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  libaio1 libcgi-fast-perl libcgi-pm-perl libevent-core-2.1-7 libevent-pthreads-2.1-7 libfcgi-bin libfcgi-perl libfcgi0ldbl libhtml-template-perl libmecab2 libprotobuf-lite23
+
+  mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
+
+Обновлено 0 пакетов, установлено 20 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+Необходимо скачать 0 B/29,2 MB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 242 MB.
+
+Хотите продолжить? [Д/н] y
+
+Предварительная настройка пакетов …
+
+Выбор ранее не выбранного пакета mysql-common.
+
+(Чтение базы данных … на данный момент установлено 210404 файла и каталога.)
+
+Подготовка к распаковке …/0-mysql-common_5.8+1.0.8_all.deb …
+
+Распаковывается mysql-common (5.8+1.0.8) …
+
+Выбор ранее не выбранного пакета mysql-client-core-8.0.
+
+Подготовка к распаковке …/1-mysql-client-core-8.0_8.0.36-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mysql-client-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета mysql-client-8.0.
+
+Подготовка к распаковке …/2-mysql-client-8.0_8.0.36-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mysql-client-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета libaio1:amd64.
+
+Подготовка к распаковке …/3-libaio1_0.3.112-13build1_amd64.deb …
+
+Распаковывается libaio1:amd64 (0.3.112-13build1) …
+
+Выбор ранее не выбранного пакета libevent-core-2.1-7:amd64.
+
+Подготовка к распаковке …/4-libevent-core-2.1-7_2.1.12-stable-1build3_amd64.deb …
+
+Распаковывается libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Выбор ранее не выбранного пакета libevent-pthreads-2.1-7:amd64.
+
+Подготовка к распаковке …/5-libevent-pthreads-2.1-7_2.1.12-stable-1build3_amd64.deb …
+
+Распаковывается libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Выбор ранее не выбранного пакета libmecab2:amd64.
+
+Подготовка к распаковке …/6-libmecab2_0.996-14build9_amd64.deb …
+
+Распаковывается libmecab2:amd64 (0.996-14build9) …
+
+Выбор ранее не выбранного пакета libprotobuf-lite23:amd64.
+
+Подготовка к распаковке …/7-libprotobuf-lite23_3.12.4-1ubuntu7.22.04.1_amd64.deb …
+
+Распаковывается libprotobuf-lite23:amd64 (3.12.4-1ubuntu7.22.04.1) …
+
+Выбор ранее не выбранного пакета mysql-server-core-8.0.
+
+Подготовка к распаковке …/8-mysql-server-core-8.0_8.0.36-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mysql-server-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет mysql-common (5.8+1.0.8) …
+
+update-alternatives: используется /etc/mysql/my.cnf.fallback для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Выбор ранее не выбранного пакета mysql-server-8.0.
+
+(Чтение базы данных … на данный момент установлено 210627 файлов и каталогов.)
+
+Подготовка к распаковке …/00-mysql-server-8.0_8.0.36-0ubuntu0.22.04.1_amd64.deb …
+
+Распаковывается mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета libcgi-pm-perl.
+
+Подготовка к распаковке …/01-libcgi-pm-perl_4.54-1_all.deb …
+
+Распаковывается libcgi-pm-perl (4.54-1) …
+
+Выбор ранее не выбранного пакета libfcgi0ldbl:amd64.
+
+Подготовка к распаковке …/02-libfcgi0ldbl_2.4.2-2build2_amd64.deb …
+
+Распаковывается libfcgi0ldbl:amd64 (2.4.2-2build2) …
+
+Выбор ранее не выбранного пакета libfcgi-perl:amd64.
+
+Подготовка к распаковке …/03-libfcgi-perl_0.82+ds-1build1_amd64.deb …
+
+Распаковывается libfcgi-perl:amd64 (0.82+ds-1build1) …
+
+Выбор ранее не выбранного пакета libcgi-fast-perl.
+
+Подготовка к распаковке …/04-libcgi-fast-perl_1%3a2.15-1_all.deb …
+
+Распаковывается libcgi-fast-perl (1:2.15-1) …
+
+Выбор ранее не выбранного пакета libfcgi-bin.
+
+Подготовка к распаковке …/05-libfcgi-bin_2.4.2-2build2_amd64.deb …
+
+Распаковывается libfcgi-bin (2.4.2-2build2) …
+
+Выбор ранее не выбранного пакета libhtml-template-perl.
+
+Подготовка к распаковке …/06-libhtml-template-perl_2.97-1.1_all.deb …
+
+Распаковывается libhtml-template-perl (2.97-1.1) …
+
+Выбор ранее не выбранного пакета mecab-utils.
+
+Подготовка к распаковке …/07-mecab-utils_0.996-14build9_amd64.deb …
+
+Распаковывается mecab-utils (0.996-14build9) …
+
+Выбор ранее не выбранного пакета mecab-ipadic.
+
+Подготовка к распаковке …/08-mecab-ipadic_2.7.0-20070801+main-3_all.deb …
+
+Распаковывается mecab-ipadic (2.7.0-20070801+main-3) …
+
+Выбор ранее не выбранного пакета mecab-ipadic-utf8.
+
+Подготовка к распаковке …/09-mecab-ipadic-utf8_2.7.0-20070801+main-3_all.deb …
+
+Распаковывается mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+
+Выбор ранее не выбранного пакета mysql-server.
+
+Подготовка к распаковке …/10-mysql-server_8.0.36-0ubuntu0.22.04.1_all.deb …
+
+Распаковывается mysql-server (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет libmecab2:amd64 (0.996-14build9) …
+
+Настраивается пакет mysql-client-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет libfcgi0ldbl:amd64 (2.4.2-2build2) …
+
+Настраивается пакет libcgi-pm-perl (4.54-1) …
+
+Настраивается пакет libfcgi-bin (2.4.2-2build2) …
+
+Настраивается пакет libhtml-template-perl (2.97-1.1) …
+
+Настраивается пакет libprotobuf-lite23:amd64 (3.12.4-1ubuntu7.22.04.1) …
+
+Настраивается пакет mecab-utils (0.996-14build9) …
+
+Настраивается пакет libevent-core-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Настраивается пакет mysql-client-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет libfcgi-perl:amd64 (0.82+ds-1build1) …
+
+Настраивается пакет libaio1:amd64 (0.3.112-13build1) …
+
+Настраивается пакет libevent-pthreads-2.1-7:amd64 (2.1.12-stable-1build3) …
+
+Настраивается пакет mecab-ipadic (2.7.0-20070801+main-3) …
+
+Compiling IPA dictionary for Mecab.  This takes long time...
+
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+
+emitting double-array: 100% |###########################################| 
+
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+
+emitting double-array: 100% |###########################################| 
+
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+
+emitting matrix      : 100% |###########################################| 
+
+
+
+done!
+
+update-alternatives: используется /var/lib/mecab/dic/ipadic для предоставления /var/lib/mecab/dic/debian (mecab-dictionary) в автоматическом режиме
+
+Настраивается пакет libcgi-fast-perl (1:2.15-1) …
+
+Настраивается пакет mysql-server-core-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+Настраивается пакет mecab-ipadic-utf8 (2.7.0-20070801+main-3) …
+
+Compiling IPA dictionary for Mecab.  This takes long time...
+
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+
+emitting double-array: 100% |###########################################| 
+
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+
+emitting double-array: 100% |###########################################| 
+
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+
+emitting matrix      : 100% |###########################################| 
+
+
+
+done!
+
+update-alternatives: используется /var/lib/mecab/dic/ipadic-utf8 для предоставления /var/lib/mecab/dic/debian (mecab-dictionary) в автоматическом режиме
+
+Настраивается пакет mysql-server-8.0 (8.0.36-0ubuntu0.22.04.1) …
+
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+
+Renaming removed key_buffer and myisam-recover options (if present)
+
+mysqld will log errors to /var/log/mysql/error.log
+
+mysqld is running as pid 93789
+
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+
+Настраивается пакет mysql-server (8.0.36-0ubuntu0.22.04.1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.6) …
+
+sergey@sergey-VirtualBox:~$ sudo service mysql restart
+
+sergey@sergey-VirtualBox:~$ sudo service mysql status
+
+● mysql.service - MySQL Community Server
+
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Sat 2024-03-02 17:35:04 +03; 15s ago
+
+    Process: 94072 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+
+   Main PID: 94080 (mysqld)
+
+     Status: "Server is operational"
+
+      Tasks: 38 (limit: 4599)
+
+     Memory: 366.6M
+
+        CPU: 1.309s
+
+     CGroup: /system.slice/mysql.service
+
+             └─94080 /usr/sbin/mysqld
+
+
+
+сак 02 17:35:02 sergey-VirtualBox systemd[1]: Starting MySQL Community Server...
+
+сак 02 17:35:04 sergey-VirtualBox systemd[1]: Started MySQL Community Server.
+
+sergey@sergey-VirtualBox:~$ mysql
+
+ERROR 1045 (28000): Access denied for user 'sergey'@'localhost' (using password: NO)
+
+sergey@sergey-VirtualBox:~$ mysql -u root  -p
+
+Enter password: 
+
+ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+
+sergey@sergey-VirtualBox:~$ sudo mysql -u root
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+Your MySQL connection id is 10
+
+Server version: 8.0.36-0ubuntu0.22.04.1 (Ubuntu)
+
+
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+
+affiliates. Other names may be trademarks of their respective
+
+owners.
+
+
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+mysql> SHOW DATABASES;
+
++--------------------+
+
+| Database           |
+
++--------------------+
+
+| information_schema |
+
+| mysql              |
+
+| performance_schema |
+
+| sys                |
+
++--------------------+
+
+4 rows in set (0,02 sec)
+
+
+
+mysql> 
+
