@@ -130,7 +130,7 @@ public class UserInterface {
             case "hamsters" -> name = "ХОМЯКИ";
             case "horses" -> name = "ЛОШАДИ";
             case "camels" -> name = "ВЕРБЛЮДЫ";
-            case "donkeys" -> name = "ОСЛЫ";
+            case "mules" -> name = "ОСЛЫ";
         }
         System.out.println("\nЗАПИСИ СПРАВОЧНИКА " + name);
         for (String[] entry : data) {
@@ -206,7 +206,7 @@ public class UserInterface {
         listAnimal.add("hamsters");
         listAnimal.add("horses");
         listAnimal.add("camels");
-        listAnimal.add("donkeys");
+        listAnimal.add("mules");
         return listAnimal;
     }
 }
