@@ -192,3 +192,23 @@ Linux
 типа счетчик была не в ресурсном try и/или ресурс остался открыт. Значение
 считать в ресурсе try, если при заведения животного заполнены все поля.
 
+﻿package Controller;
+
+public class Counter implements AutoCloseable {
+
+    static int sum;
+    {
+        sum = 0;
+    }
+
+    public void add() {
+        sum++;
+    }
+
+    @Override
+    public void close() {
+        System.out.println("Counter closed");
+    }
+}
+
+
