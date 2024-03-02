@@ -13,14 +13,24 @@ Linux
 Выполнениие команды:
 
 cat > Домашние_животные
+
 собака
+
 кот
+
 хомяк
 
+попугай
+
 cat > Вьючные_животные
+
 лошадь
+
 верблюд
+
 осел
+
+мул
 
 ![Alt image](https://github.com/sdrobyshevsky/itogovaya-rabota/blob/main/Снимок%20экрана%20(76).png) 
 
