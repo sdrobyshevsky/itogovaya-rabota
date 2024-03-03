@@ -261,5 +261,5 @@ public class Счетчик implements AutoCloseable {
     public void close() throws Exception {
         closed = true;
     }
-}
+   }
 
