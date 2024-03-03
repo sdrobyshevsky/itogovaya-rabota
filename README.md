@@ -241,10 +241,10 @@ https://github.com/sdrobyshevsky/itogovaya-rabota/tree/main/Programm
 считать в ресурсе try, если при заведения животного заполнены все поля.
 
 ﻿java
+ 
 public class Счетчик implements AutoCloseable {
 
     private int count;
-    
     private boolean closed;
 
     public Счетчик() {
