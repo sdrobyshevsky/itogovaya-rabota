@@ -53,12 +53,12 @@ public class ControlAnimalsCreate {
                 dataBase.fileRecording(title, true, camels.toStringNew());
             }
             case 6 -> {
-                Mule donkeys = new Mule();
+                Mule mules = new Mule();
                 dateAnimals = userInterface.enteringDataAnimal();
-                donkeys.setName(dateAnimals[0]);
-                donkeys.setBreed(dateAnimals[1]);
-                donkeys.setDateOfBirth(LocalDate.parse(dateAnimals[2]));
-                dataBase.fileRecording(title, true, donkeys.toStringNew());
+                mules.setName(dateAnimals[0]);
+                mules.setBreed(dateAnimals[1]);
+                mules.setDateOfBirth(LocalDate.parse(dateAnimals[2]));
+                dataBase.fileRecording(title, true, mules.toStringNew());
             }
         }
     }
