@@ -242,7 +242,9 @@ https://github.com/sdrobyshevsky/itogovaya-rabota/tree/main/Programm
 
 ﻿java
 public class Счетчик implements AutoCloseable {
+
     private int count;
+    
     private boolean closed;
 
     public Счетчик() {
