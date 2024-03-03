@@ -240,23 +240,26 @@ https://github.com/sdrobyshevsky/itogovaya-rabota/tree/main/Programm
 типа счетчик была не в ресурсном try и/или ресурс остался открыт. Значение
 считать в ресурсе try, если при заведения животного заполнены все поля.
 
-﻿package Controller;
+﻿java
+public class Счетчик implements AutoCloseable {
+    private int count;
+    private boolean closed;
 
-public class Counter implements AutoCloseable {
-
-    static int sum;
-    {
-        sum = 0;
+    public Счетчик() {
+        count = 0;
+        closed = false;
     }
 
-    public void add() {
-        sum++;
+    public void add() throws Exception {
+        if (closed) {
+            throw new Exception("Счетчик закрыт");
+        }
+        count++;
     }
 
     @Override
-    public void close() {
-        System.out.println("Counter closed");
+    public void close() throws Exception {
+        closed = true;
     }
 }
-
 
