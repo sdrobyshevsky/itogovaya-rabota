@@ -208,7 +208,7 @@ public class MenuController {
                     }
                 }
                 case 6 -> {
-                    String title = "donkeys";
+                    String title = "mules";
                     List<String[]> commandsFile = dataBase.fileReading(title + "Commands", title);
                     if (numberMainMenu == 1) {
                         controlAnimalsCreate.createRecordsAnimals(numberMenuAnimals, title);
